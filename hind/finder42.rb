@@ -23,7 +23,7 @@ $token = $client.client_credentials.get_token
 
 def find_user(login)
   begin
-    a = []
+    f = File.open('log.txt', 'a')
     response = $token.get("/v2/users/#{login}/locations")
     while response.status != 200
       puts ("Server are down? lol idk... Let's try again... (ᴗ˳ᴗ)").brown
@@ -33,7 +33,10 @@ def find_user(login)
       end
     end
     if !response.parsed[0]["end_at"]
-      puts (login.ljust(10) + ": " + response.parsed[0]["host"]).green
+      puts (login.ljust(10) + ": " + response.parsed[0]["host"]).green  
+      f.write (login.ljust(10) + ": " + response.parsed[0]["host"]).green
+      f.write ("\n")
+      f.close
     else
       puts (login.ljust(10) + ": not logged in ¯\\_(ツ)_/¯").cyan
       puts ("(last login -> " + response.parsed[0]["host"] + ")").blue
@@ -41,8 +44,7 @@ def find_user(login)
   rescue
     puts (login.ljust(10) + ": not a valid username!").red
   end
-  a.append(response.parsed[0]["host"])
-  puts (a)
+    
 end
 
 if ARGV[0]
