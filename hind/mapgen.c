@@ -251,7 +251,7 @@ char	*zone2_updater(void)
 	if (com > 311)
 	{
 		com = 311;
-		printf("%s", "WE HAVE ELIMINATED THE EXTRAS FOR YOU\n");
+		printf("%s", "		         WE HAVE ELIMINATED THE EXTRAS FOR YOU\n");
 	}
 	p = com;
 	i = 0;
@@ -302,7 +302,7 @@ char	*zone3_updater(void)
 	if (com > 196)
 	{
 		com = 196;
-		printf("%s", "TOO MANY PEOPLE FOR 42\n");
+		printf("%s", "WE HAVE ELIMINATED THE EXTRAS FOR YOU\n");
 	}
 	p = com;
 	i = 0;
@@ -336,40 +336,40 @@ int	main(void)
 {
 	if (zone() == 1)
 	{	
-		printf("\n%s", "       :::      ::::::::\n");
-		printf("%s", "     :+:      :+:    :+:\n");	
-		printf("%s", "   +:+ +:+    SV    +:+ \n");
-		printf("%s", "  +#+  +:+       +#+ \n ");
-		printf("%s", "+#+#+#+#+#+   +#+    \n ");
-		printf("%s", "     #+#    #+#      \n ");
-		printf("%s", "    ###   ########.us \n");
-		printf("\n%s\n\n", "Zone 1");
+		printf("\n%s", "             :::      ::::::::\n");
+		printf("%s", "           :+:      :+:    :+:\n");	
+		printf("%s", "         +:+ +:+    SV    +:+ \n");
+		printf("%s", "        +#+  +:+       +#+ \n ");
+		printf("%s", "      +#+#+#+#+#+   +#+    \n ");
+		printf("%s", "           #+#    #+#      \n ");
+		printf("%s", "          ###   ########.us \n");
+		printf("\n%s\n\n", "		ZONE 1");
 		printf("%s", zone1_updater());
 		printf("\n");
 	}
 	if (zone() == 2)
 	{
-		printf("\n%s", "       :::      ::::::::\n");
-		printf("%s", "     :+:      :+:    :+:\n");	
-		printf("%s", "   +:+ +:+    SV    +:+ \n");
-		printf("%s", "  +#+  +:+       +#+ \n ");
-		printf("%s", "+#+#+#+#+#+   +#+    \n ");
-		printf("%s", "     #+#    #+#      \n ");
-		printf("%s", "    ###   ########.us \n");
-		printf("\n%s\n\n", "Zone 2");
+		printf("\n%s", "	        	               :::      ::::::::\n");
+		printf("%s", "				     :+:      :+:    :+:\n");	
+		printf("%s", "				   +:+ +:+    SV    +:+ \n");
+		printf("%s", "				  +#+  +:+       +#+ \n ");
+		printf("%s", "				+#+#+#+#+#+   +#+    \n ");
+		printf("%s", "				     #+#    #+#      \n ");
+		printf("%s", "				    ###   ########.us \n");
+		printf("\n%s\n\n", "		 		         ZONE 2");
 		printf("%s", zone2_updater());
 		printf("\n");
 	}
 	if (zone() == 3)
 	{	
-		printf("\n%s", "       :::      ::::::::\n");
-		printf("%s", "     :+:      :+:    :+:\n");	
-		printf("%s", "   +:+ +:+    SV    +:+ \n");
-		printf("%s", "  +#+  +:+       +#+ \n ");
-		printf("%s", "+#+#+#+#+#+   +#+    \n ");
-		printf("%s", "     #+#    #+#      \n ");
-		printf("%s", "    ###   ########.us \n");
-		printf("\n%s\n\n", "Zone 3");
+		printf("\n%s", "          :::      ::::::::\n");
+		printf("%s", "        :+:      :+:    :+:\n");	
+		printf("%s", "      +:+ +:+    SV    +:+ \n");
+		printf("%s", "     +#+  +:+       +#+ \n ");
+		printf("%s", "   +#+#+#+#+#+   +#+    \n ");
+		printf("%s", "        #+#    #+#      \n ");
+		printf("%s", "       ###   ########.us \n");
+		printf("\n%s\n\n", "	    ZONE 3");
 		printf("%s", zone3_updater());
 		printf("\n");
 	}	
