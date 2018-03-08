@@ -164,7 +164,7 @@ char	*zone2_map(void)
 	char *str;
 	
 	str = (char *)malloc(sizeof(*str) * 2400);
-	str = "     _    _      _   _     _    _     _   _      _   _     _    _     _   _     _ \n  _   _  _        _ _   _   _  _   _   _ _        _ _   _   _  _   _   _ _       _\n _ _        _  _   _ _        _ _       _  _   _   _ _        _ _   _   _ _   \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _   _  \n     _    _                _    _     _   _           _    _     _   _       \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _      \n   _        _  _   _   _ _        _ _      _  _   _   _ _        _ _       _     \n      _  _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n     _     _      _   _     _    _     _   _      _   _     _    _     _   _       \n            _    _                _   _     _    _                _   _     _      \n           _       _   _     _    _     _   _      _   _     _    _     _   _       \n          _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n         _   _  _   _   _ _        _ _   _   _  _   _   _ _        _ _   _   _     \n           _    _     _   _      _   _     _    _     _   _      _   _     _      \n                                                                                    \n                                                                                   \n                _     _   _      _   _     _    _     _   _      _   _            \n               _   _   _          _ _   _   _  _   _   _          _ _    _        \n                  _ _       _  _   _   _          _ _       _  _   _   _          \n                 _   _          _     _          _   _     _    _     _          \n                _     _   _                _    _     _   _                       \n                 _   _          _     _          _   _     _    _     _           \n                  _ _      _                         _     _    _     _           \n                       _ _                             _ _        _ _             \n                      _   _                           _   _      _   _            \n                     _     _                         _     _    _                 \n                      _   _                           _   _      _            \n                       _                               _ _        _                  \n                     _   _   _                       _   _   _  _   _             \n                      _                               _     _    _                     \n";
+	str = "     _    _      _   _     _    _     _   _      _   _     _    _     _   _     _ \n  _   _  _        _ _   _   _  _   _   _ _        _ _   _   _  _   _   _ _       _\n _ _        _  _   _   _ _        _ _       _  _   _   _ _        _ _       _ _     \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _   _  \n     _    _                _    _     _   _           _    _     _   _       \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _      \n   _        _  _   _   _ _        _ _      _  _   _   _ _        _ _       _     \n      _  _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n     _     _      _   _     _    _     _   _      _   _     _    _     _   _       \n            _    _                _   _     _    _                _   _     _      \n           _       _   _     _    _     _   _      _   _     _    _     _   _       \n          _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n         _   _  _   _   _ _        _ _   _   _  _   _   _ _        _ _   _   _     \n            _    _     _   _      _   _     _    _     _   _      _   _     _      \n                                                                                    \n                                                                                   \n                _     _   _      _   _     _    _     _   _      _   _            \n               _   _   _          _ _   _   _  _   _   _          _ _    _        \n                  _ _       _  _   _   _          _ _       _  _   _   _          \n                 _   _          _     _          _   _     _    _     _          \n                _     _   _                _    _     _   _                       \n                 _   _          _     _          _   _     _    _     _           \n                  _ _      _                         _     _    _     _           \n                       _ _                             _ _        _ _             \n                      _   _                           _   _      _   _            \n                     _     _                         _     _    _                 \n                      _   _                           _   _      _            \n                       _                               _ _        _                  \n                     _   _   _                       _   _   _  _   _             \n                      _                               _     _    _                     \n";
 
 	return (str);
 }
@@ -199,8 +199,10 @@ char	*zone1_updater(void)
 	com = comp();
 	if (com > 341)
 	{
+		printf("%s", "WE HAVE ELIMINATED ");
+		printf("%i", com - 341);
+		printf("%s", " PERSONS(S) FOR YOU \n");
 		com = 341;
-		printf("%s", "WE HAVE ELIMINATED THE EXTRAS FOR YOU\n");
 	}
 	p = com;
 	i = 0;
@@ -250,8 +252,10 @@ char	*zone2_updater(void)
 	com = comp();
 	if (com > 311)
 	{
+		printf("%s", "WE HAVE ELIMINATED ");
+		printf("%i", com - 311);
+		printf("%s", " PERSONS(S) FOR YOU \n");
 		com = 311;
-		printf("%s", "		         WE HAVE ELIMINATED THE EXTRAS FOR YOU\n");
 	}
 	p = com;
 	i = 0;
@@ -301,8 +305,10 @@ char	*zone3_updater(void)
 	com = comp();
 	if (com > 196)
 	{
+		printf("%s", "WE HAVE ELIMINATED ");
+		printf("%i", com - 196);
+		printf("%s", " PERSONS(S) FOR YOU \n");
 		com = 196;
-		printf("%s", "WE HAVE ELIMINATED THE EXTRAS FOR YOU\n");
 	}
 	p = com;
 	i = 0;
