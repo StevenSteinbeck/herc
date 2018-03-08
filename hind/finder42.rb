@@ -26,25 +26,24 @@ def find_user(login)
     f = File.open('log.txt', 'a')
     response = $token.get("/v2/users/#{login}/locations")
     while response.status != 200
-      puts ("Server are down? lol idk... Let's try again... (ᴗ˳ᴗ)").brown
+      puts ("Check server connection").red
       sleep(5)
       if response.status == 200
         break
       end
     end
     if !response.parsed[0]["end_at"]
-      puts (login.ljust(10) + ": " + response.parsed[0]["host"]).green  
-      f.write (login.ljust(10) + ": " + response.parsed[0]["host"]).green
-      f.write ("\n")
+      puts (login.ljust(10) + ": " + response.parsed[0]["host"]).green.bold.blink
+      f.write(login.ljust(10) + ": " + response.parsed[0]["host"])
+      f.write("\n")
       f.close
     else
-      puts (login.ljust(10) + ": not logged in ¯\\_(ツ)_/¯").cyan
-      puts ("(last login -> " + response.parsed[0]["host"] + ")").blue
+      puts (login.ljust(10) + ": not logged in ¯\\_(ツ)_/¯").brown.bold
+      puts ("(last login -> " + response.parsed[0]["host"] + ")").brown.bold
     end
   rescue
-    puts (login.ljust(10) + ": not a valid username!").red
+    puts (login.ljust(10) + ": not a valid username!").red.bold
   end
-    
 end
 
 if ARGV[0]
