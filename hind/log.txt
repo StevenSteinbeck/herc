@@ -1,5 +1,4 @@
-kvilnite  : e1z3r3p3000
-husui     : e1z2r4p1
-ktjhan     : e1z1r3p8
-phjha     : e1z2r4p10
-stestein    : e1z3r4p52
+kvilnite  : e1z1r3p5 
+ktjhan    : e1z2r4p30 
+pjha      : e1z3r5p29 
+ttran     : e1z1r3p20 

@@ -33,12 +33,12 @@ char	*name(char *buffer)
 	size = 0;
 	if (buffer == NULL)
 	{
-		printf("%s", "Invalid input format, try: \"stestein : e1z1r3p33\"");
+		printf("%s\n", "Invalid input format, try: \"stestein : e1z1r3p33\"\n");
 		return(NULL);
 	}
 	if (*buffer < 'A' || *buffer > 'z')
 	{
-		printf("%s", "Invalid input format, try: \"stestein : e1z1r3p33\"");
+		printf("%s", "Invalid input format, try: \"stestein : e1z1r3p33\"\n");
 		return (NULL);
 	}
 	if (*buffer != ':')
@@ -61,9 +61,10 @@ int	zone(char *buffer)
 {
 	int i;
 	int zone;
-	
+
 	i = 0;
 	zone = 0;
+	
 	while (zone == 0)
 	{
 		while (buffer[i] != ':')
@@ -159,7 +160,7 @@ char	*zone2_map(void)
 	char *str;
 	
 	str = (char *)malloc(sizeof(*str) * 2400);
-	str = "     _    _      _   _     _    _     _   _      _   _     _    _     _   _     _ \n  _   _  _        _ _   _   _  _   _   _ _        _ _   _   _  _   _   _ _       _\n _ _        _  _   _   _ _        _ _       _  _   _   _ _        _ _       _ _     \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _   _  \n     _    _                _    _     _   _           _    _     _   _       \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _      \n   _        _  _   _   _ _        _ _      _  _   _   _ _        _ _       _     \n      _  _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n     _     _      _   _     _    _     _   _      _   _     _    _     _   _       \n            _    _                _   _     _    _                _   _     _      \n           _       _   _     _    _     _   _      _   _     _    _     _   _       \n          _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n         _   _  _   _   _ _        _ _   _   _  _   _   _ _        _ _   _   _     \n            _    _     _   _      _   _     _    _     _   _      _   _     _      \n                                                                                    \n                                                                                   \n                _     _   _      _   _     _    _     _   _      _   _            \n               _   _   _          _ _   _   _  _   _   _          _ _    _        \n                  _ _       _  _   _   _          _ _       _  _   _   _          \n                 _   _          _     _          _   _     _    _     _          \n                _     _   _                _    _     _   _                       \n                 _   _          _     _          _   _     _    _     _           \n                  _ _      _                         _     _    _     _           \n                       _ _                             _ _        _ _             \n                      _   _                           _   _      _   _            \n                     _     _                         _     _    _                 \n                      _   _                           _   _      _            \n                       _                               _ _        _                  \n                     _   _   _                       _   _   _  _   _             \n                      _                               _     _    _                     \n\0";
+	str = "     _    _      _   _     _    _     _   _      _   _     _    _     _   _     _ \n  _   _  _        _ _   _   _  _   _   _ _        _ _   _   _  _   _   _ _       _\n _ _        _  _   _   _ _        _ _       _  _   _   _ _        _ _       _ _     \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _   _  \n     _    _                _    _     _   _           _    _     _   _       \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _      \n   _        _  _   _   _ _        _ _       _  _   _   _ _        _ _       _     \n      _  _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n     _     _      _   _     _    _     _   _      _   _     _    _     _   _       \n            _    _                _   _     _    _                _   _     _      \n           _       _   _     _    _     _   _      _   _     _    _     _   _       \n          _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n         _   _  _   _   _ _        _ _   _   _  _   _   _ _        _ _   _   _     \n            _    _     _   _      _   _     _    _     _   _      _   _     _      \n                                                                                    \n                                                                                   \n                _     _   _      _   _     _    _     _   _      _   _            \n               _   _   _          _ _   _   _  _   _   _          _ _    _        \n                  _ _       _  _   _   _          _ _       _  _   _   _          \n                 _   _          _     _          _   _     _    _     _          \n                _     _   _                _    _     _   _                       \n                 _   _          _     _          _   _     _    _     _           \n                  _ _      _                         _     _    _     _           \n                       _ _                             _ _        _ _             \n                      _   _                           _   _      _   _            \n                     _     _                         _     _    _                 \n                      _   _                           _   _      _            \n                       _                               _ _        _                  \n                     _   _   _                       _   _   _  _   _             \n                      _                               _     _    _                     \n\0";
 
 	return (str);
 }
@@ -333,23 +334,28 @@ char	*zone3_updater(char *map, int com)
 }
 	
 int	main(void)
-{
-	char *buffer = getdata();
+{	
+	char *buffer;
+	buffer = (char *)malloc(sizeof(char) * strlen(buffer) + 1);
 	char *newmap;
-	char *newbuff;
-
-	newmap = (char *)malloc(sizeof(*newmap) * 2400);
+	int i = 0;
 	
-		printf("\n\n%s", "             :::::::::    :::                :::::::::    :::\n");
+	buffer = getdata();
+	
+	newmap = (char *)malloc(sizeof(*newmap) * 2400);
+		printf("\n\n%s", "              .........    ...                .........    ...\n");
+		printf("%s", "             :::::::::    :::    ...         :::::::::    :::     ...     ***   ...  \n");
 		printf("%s", "           :+:           :+:    :--:       :+:           :+:     :--:    ***   :::\n");	
 		printf("%s", "         +:+ +:+ +:+  ::+:+:: :+:+:+     +:+ +:+ +:+  ::+:+:: :+:+:+    +:+   +:+:+:+:+\n");
 		printf("%s", "               +:+    +:+    :+:               +:+    +:+    :+:       +:+   +:+   +:+\n");
-		printf("%s", "      +#+#+#+#+#+    +#+      +#+#+#  +#+#+#+#+#+    +#+      +#+#+# +#+   +#+   +#+\n");
-		printf("\n\n%s\n\n", "This program prints logically from left to right, starting from 0");	
+		printf("%s", "      +#+#+#+#+#+    +#+     #+#+#+#  +#+#+#+#+#+    +#+     #+#+#+#  +#+   +#+   +#+\n");
+		printf("%s", "    ###########     ###      ######  ##########     ###      ######  ###   ###   ###\n");  
+		printf("\n\n%s\n\n", "This program counts logically from left to right, starting from 0");	
 	while (strlen(buffer) != 0){
-
+	
 	if (zone(buffer) == 1)
-	{	
+	{
+		i++;
 		printf("\n%s", "             :::      ::::::::\n");
 		printf("%s", "           :+:      :+:    :+:\n");	
 		printf("%s", "         +:+ +:+    SV    +:+ \n");
@@ -358,16 +364,20 @@ int	main(void)
 		printf("%s", "           #+#    #+#      \n ");
 		printf("%s", "          ###   ########.us \n");
 		printf("\n%s\n\n", "		ZONE 1");
-		printf("%s", " 	        ");
+		printf("%s", "               ");	
 		printf("%s\n\n", name(buffer));
+		printf("%s", "          Computer Number ");
+		printf("%i\n\n", comp(buffer));
 		if (strlen(buffer) != 0)
 			newmap = zone1_updater(zone1_map(), comp(buffer));
-		printf("%s", newmap);
+		printf("%s\n\n", newmap);
+		printf("%i", i);
 		printf("\n");
 	}
 	
 	if (zone(buffer) == 2)
-	{
+	{	
+		i++;
 		printf("\n%s", "	        	               :::      ::::::::\n");
 		printf("%s", "				     :+:      :+:    :+:\n");	
 		printf("%s", "				   +:+ +:+    SV    +:+ \n");
@@ -375,17 +385,21 @@ int	main(void)
 		printf("%s", "				+#+#+#+#+#+   +#+    \n ");
 		printf("%s", "				     #+#    #+#      \n ");
 		printf("%s", "				    ###   ########.us \n");
-		printf("\n%s\n\n", "		 		         ZONE 2");
-		printf("%s", "     		                         ");
+		printf("\n%s", "		 		         ZONE 2");
+		printf("\n\n%s", "     		                        ");
 		printf("%s\n\n", name(buffer));
+		printf("%s", "                                   Computer Number ");
+		printf("%i\n\n", comp(buffer));
 		if (strlen(buffer) != 0)
 			newmap = zone2_updater(zone2_map(), comp(buffer));
 		printf("%s", newmap);
+		printf("%i", i);
 		printf("\n");
 	}
 								
 	if (zone(buffer) == 3)
-	{	
+	{
+		i++;	
 		printf("\n%s", "          :::      ::::::::\n");
 		printf("%s", "        :+:      :+:    :+:\n");	
 		printf("%s", "      +:+ +:+    SV    +:+ \n");
@@ -396,16 +410,21 @@ int	main(void)
 		printf("\n%s\n\n", "	    ZONE 3");
 		printf("%s", "            ");
 		printf("%s\n\n", name(buffer));
-
-		
+		printf("%s", "       Computer Number ");
+		printf("%i\n\n", comp(buffer));
 		if (strlen(buffer) != 0)
 			newmap = zone3_updater(zone3_map(), comp(buffer));
-		printf("%s", newmap);
+		printf("%s\n\n", newmap);
+		printf("%i", i);
 		printf("\n");
 	}	
 	while (*buffer != '\n')
 		buffer++;
 	buffer++;
 	}
+	if (1)
+		printf("%s", "SUCESS\n");
+	if (0)
+		printf("%s", "FAILURE\n");
 	return(0);
 }
