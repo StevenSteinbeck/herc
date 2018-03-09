@@ -25,45 +25,41 @@ char	*getdata(void)
 	return (buffer);		
 }
 
-char	*name(void)
-{
-	char *str;
-	char *buffer = getdata();
-	int i;
+char	*name(char *buffer)
+{	
+	char *str;	
 	int size;
 	
-	i = 0;
 	size = 0;
 	if (buffer == NULL)
 	{
 		printf("%s", "Invalid input format, try: \"stestein : e1z1r3p33\"");
 		return(NULL);
 	}
-	if (buffer[i] < 'A' || buffer[i] > 'z')
+	if (*buffer < 'A' || *buffer > 'z')
 	{
 		printf("%s", "Invalid input format, try: \"stestein : e1z1r3p33\"");
 		return (NULL);
 	}
-	if (buffer[i] != ':')
+	if (*buffer != ':')
 	{	
 		while (buffer[size] != ' ')
 			size++;
 		str = (char *)malloc(sizeof(*str) * size + 1);
 		size = 0;
-		while (buffer[i] >= 'A' && buffer[i] <= 'z' && buffer[i] != ' ')
+		while (*buffer >= 'A' && *buffer <= 'z' && *buffer != ' ')
 		{
-			str[size] = buffer[i];
+			str[size] = *buffer;
 			size++;
-			i++;
+			buffer++;
 		}
 	}
 	return (str);
 }
 
-int	zone(void)
+int	zone(char *buffer)
 {
 	int i;
-	char *buffer = getdata();
 	int zone;
 	
 	i = 0;
@@ -104,10 +100,9 @@ int	row(void)
 	return (row);
 }
 
-int	comp(void)
+int	comp(char *buffer)
 {
 	int i;
-	char *buffer = getdata();
 	int zone;
 	int seat;
 	int row;
@@ -164,7 +159,7 @@ char	*zone2_map(void)
 	char *str;
 	
 	str = (char *)malloc(sizeof(*str) * 2400);
-	str = "     _    _      _   _     _    _     _   _      _   _     _    _     _   _     _ \n  _   _  _        _ _   _   _  _   _   _ _        _ _   _   _  _   _   _ _       _\n _ _        _  _   _   _ _        _ _       _  _   _   _ _        _ _       _ _     \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _   _  \n     _    _                _    _     _   _           _    _     _   _       \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _      \n   _        _  _   _   _ _        _ _      _  _   _   _ _        _ _       _     \n      _  _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n     _     _      _   _     _    _     _   _      _   _     _    _     _   _       \n            _    _                _   _     _    _                _   _     _      \n           _       _   _     _    _     _   _      _   _     _    _     _   _       \n          _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n         _   _  _   _   _ _        _ _   _   _  _   _   _ _        _ _   _   _     \n            _    _     _   _      _   _     _    _     _   _      _   _     _      \n                                                                                    \n                                                                                   \n                _     _   _      _   _     _    _     _   _      _   _            \n               _   _   _          _ _   _   _  _   _   _          _ _    _        \n                  _ _       _  _   _   _          _ _       _  _   _   _          \n                 _   _          _     _          _   _     _    _     _          \n                _     _   _                _    _     _   _                       \n                 _   _          _     _          _   _     _    _     _           \n                  _ _      _                         _     _    _     _           \n                       _ _                             _ _        _ _             \n                      _   _                           _   _      _   _            \n                     _     _                         _     _    _                 \n                      _   _                           _   _      _            \n                       _                               _ _        _                  \n                     _   _   _                       _   _   _  _   _             \n                      _                               _     _    _                     \n";
+	str = "     _    _      _   _     _    _     _   _      _   _     _    _     _   _     _ \n  _   _  _        _ _   _   _  _   _   _ _        _ _   _   _  _   _   _ _       _\n _ _        _  _   _   _ _        _ _       _  _   _   _ _        _ _       _ _     \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _   _  \n     _    _                _    _     _   _           _    _     _   _       \n    _      _    _     _   _      _   _     _    _     _   _      _   _     _      \n   _        _  _   _   _ _        _ _      _  _   _   _ _        _ _       _     \n      _  _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n     _     _      _   _     _    _     _   _      _   _     _    _     _   _       \n            _    _                _   _     _    _                _   _     _      \n           _       _   _     _    _     _   _      _   _     _    _     _   _       \n          _        _ _   _   _  _       _ _        _ _   _   _  _       _ _        \n         _   _  _   _   _ _        _ _   _   _  _   _   _ _        _ _   _   _     \n            _    _     _   _      _   _     _    _     _   _      _   _     _      \n                                                                                    \n                                                                                   \n                _     _   _      _   _     _    _     _   _      _   _            \n               _   _   _          _ _   _   _  _   _   _          _ _    _        \n                  _ _       _  _   _   _          _ _       _  _   _   _          \n                 _   _          _     _          _   _     _    _     _          \n                _     _   _                _    _     _   _                       \n                 _   _          _     _          _   _     _    _     _           \n                  _ _      _                         _     _    _     _           \n                       _ _                             _ _        _ _             \n                      _   _                           _   _      _   _            \n                     _     _                         _     _    _                 \n                      _   _                           _   _      _            \n                       _                               _ _        _                  \n                     _   _   _                       _   _   _  _   _             \n                      _                               _     _    _                     \n\0";
 
 	return (str);
 }
@@ -179,35 +174,34 @@ char	*zone3_map(void)
 	return(str);
 }
 
-char	*zone1_updater(void)
+char	*zone1_updater(char *map, int com)
 {
-	char *str = zone1_map();
+	char *str = map;
 	int r;
-	int com;
 	int i = 0;
 	int n = 0;
 	char *tmp;
 	int j;
 	int p;
-	
+		
 	tmp = (char *)malloc(sizeof(*tmp) * 828);
 	while (str[i])
 	{
 		tmp[i] = str[i];
 		i++;
 	}
-	com = comp();
 	if (com > 341)
 	{
 		printf("%s", "WE HAVE ELIMINATED ");
 		printf("%i", com - 341);
 		printf("%s", " PERSONS(S) FOR YOU \n");
 		com = 341;
+		j = 1;
 	}
 	p = com;
 	i = 0;
 	if (com == 0)
-		tmp[27] = 'x';
+		tmp[27] = 'X';
 	
 	while (com > 0)
 	{
@@ -232,30 +226,30 @@ char	*zone1_updater(void)
 	return (tmp);
 }
 
-char	*zone2_updater(void)
+char	*zone2_updater(char *map, int com)
 {
-	char *str = zone2_map();
+	char *str = map;
 	int r;
-	int com;
 	int i = 0;
 	int n = 0;
 	char *tmp;
-	int j;
 	int p;
+	int j;	
 	
+	j = 0;
 	tmp = (char *)malloc(sizeof(*tmp) * 2400);
 	while (str[i])
 	{
 		tmp[i] = str[i];
 		i++;
 	}
-	com = comp();
 	if (com > 311)
 	{
-		printf("%s", "WE HAVE ELIMINATED ");
+		printf("%s", "                       WE HAVE ELIMINATED ");
 		printf("%i", com - 311);
 		printf("%s", " PERSONS(S) FOR YOU \n");
 		com = 311;
+		j = 1;
 	}
 	p = com;
 	i = 0;
@@ -285,35 +279,35 @@ char	*zone2_updater(void)
 	return (tmp);
 }
 
-char	*zone3_updater(void)
+char	*zone3_updater(char *map, int com)
 {
-	char *str = zone3_map();
+	char *str = map;
 	int r;
-	int com;
 	int i = 0;
 	int n = 0;
 	char *tmp;
 	int j;
 	int p;
 	
+	j = 0;
 	tmp = (char *)malloc(sizeof(*tmp) * 460);
 	while (str[i])
 	{
 		tmp[i] = str[i];
 		i++;
 	}
-	com = comp();
 	if (com > 196)
 	{
 		printf("%s", "WE HAVE ELIMINATED ");
 		printf("%i", com - 196);
-		printf("%s", " PERSONS(S) FOR YOU \n");
+		printf("%s", " PERSONS(S) FOR YOU\n");
 		com = 196;
+		j = 1;
 	}
 	p = com;
 	i = 0;
 	if (com == 0)
-		tmp[4] = 'x';
+		tmp[4] = 'X';
 	
 	while (com > 0)
 	{
@@ -340,7 +334,21 @@ char	*zone3_updater(void)
 	
 int	main(void)
 {
-	if (zone() == 1)
+	char *buffer = getdata();
+	char *newmap;
+	char *newbuff;
+
+	newmap = (char *)malloc(sizeof(*newmap) * 2400);
+	
+		printf("\n\n%s", "             :::::::::    :::                :::::::::    :::\n");
+		printf("%s", "           :+:           :+:    :--:       :+:           :+:     :--:    ***   :::\n");	
+		printf("%s", "         +:+ +:+ +:+  ::+:+:: :+:+:+     +:+ +:+ +:+  ::+:+:: :+:+:+    +:+   +:+:+:+:+\n");
+		printf("%s", "               +:+    +:+    :+:               +:+    +:+    :+:       +:+   +:+   +:+\n");
+		printf("%s", "      +#+#+#+#+#+    +#+      +#+#+#  +#+#+#+#+#+    +#+      +#+#+# +#+   +#+   +#+\n");
+		printf("\n\n%s\n\n", "This program prints logically from left to right, starting from 0");	
+	while (strlen(buffer) != 0){
+
+	if (zone(buffer) == 1)
 	{	
 		printf("\n%s", "             :::      ::::::::\n");
 		printf("%s", "           :+:      :+:    :+:\n");	
@@ -350,10 +358,15 @@ int	main(void)
 		printf("%s", "           #+#    #+#      \n ");
 		printf("%s", "          ###   ########.us \n");
 		printf("\n%s\n\n", "		ZONE 1");
-		printf("%s", zone1_updater());
+		printf("%s", " 	        ");
+		printf("%s\n\n", name(buffer));
+		if (strlen(buffer) != 0)
+			newmap = zone1_updater(zone1_map(), comp(buffer));
+		printf("%s", newmap);
 		printf("\n");
 	}
-	if (zone() == 2)
+	
+	if (zone(buffer) == 2)
 	{
 		printf("\n%s", "	        	               :::      ::::::::\n");
 		printf("%s", "				     :+:      :+:    :+:\n");	
@@ -363,12 +376,15 @@ int	main(void)
 		printf("%s", "				     #+#    #+#      \n ");
 		printf("%s", "				    ###   ########.us \n");
 		printf("\n%s\n\n", "		 		         ZONE 2");
-		printf("%s", " 		 		        ");
-		printf("%s\n\n", name());
-		printf("%s", zone2_updater());
+		printf("%s", "     		                         ");
+		printf("%s\n\n", name(buffer));
+		if (strlen(buffer) != 0)
+			newmap = zone2_updater(zone2_map(), comp(buffer));
+		printf("%s", newmap);
 		printf("\n");
 	}
-	if (zone() == 3)
+								
+	if (zone(buffer) == 3)
 	{	
 		printf("\n%s", "          :::      ::::::::\n");
 		printf("%s", "        :+:      :+:    :+:\n");	
@@ -378,8 +394,18 @@ int	main(void)
 		printf("%s", "        #+#    #+#      \n ");
 		printf("%s", "       ###   ########.us \n");
 		printf("\n%s\n\n", "	    ZONE 3");
-		printf("%s", zone3_updater());
+		printf("%s", "            ");
+		printf("%s\n\n", name(buffer));
+
+		
+		if (strlen(buffer) != 0)
+			newmap = zone3_updater(zone3_map(), comp(buffer));
+		printf("%s", newmap);
 		printf("\n");
 	}	
+	while (*buffer != '\n')
+		buffer++;
+	buffer++;
+	}
 	return(0);
 }
