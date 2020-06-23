@@ -4,9 +4,13 @@ A tool used to track and map the position of users that are logged into the 42 d
 YOU MUST INSTALL RUBY AND OATH2
 
 xcode: xcode-select --install
+
 homebrew: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 ruby: brew install ruby
+
 oauth: gem install oauth2
+
 oauth: gem install google-api-client
 
 
