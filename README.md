@@ -23,7 +23,8 @@ Execution:
    gathers and sorts data, and outputs the selected data in a file called
    log.txt. This file must exist before running the command.
 
-	to get proper API access: sh keys.sh
+	to get proper API access: 
+	sh keys.sh  (obviously the keys included in this file are invalid, but get your own from the API and ther them here)
 	ruby 42api.rb logins.txt
 
 2: The map generator .c file, once compiled, will examine the log.txt and generate a map
